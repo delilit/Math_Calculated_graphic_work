@@ -6,12 +6,17 @@
 \usepackage{polyglossia} 
 \usepackage{amsmath} % for math
 \usepackage{graphicx} % for images
+\usepackage{nicematrix}
+\usepackage{tikz}
+\usetikzlibrary{fit, shapes}
 \setmainlanguage{russian} 
 \setotherlanguage{english}
 \setmainfont{Times New Roman}
 
-\title{Кt}
-\author{Гей}
+\title{Карты карно}
+
+\author{Тарасенко Алексей Романович}
+
 \date{\today}
 
 \begin{document}
@@ -20,11 +25,9 @@
 
 \section{Карты карно}
 
-This is a simple LaTeX document. LaTeX is a powerful typesetting system commonly used for academic writing, especially in mathematics, science, and engineering.
+Сами по себе карты карно представляют собой матрицу, построенную по уже заранее определённому шаблону. Эту матрицу необходимо заполнить в соответствии с заданной логической функцией. Образцы карт карно для 2-х и 3-х перемнных соответственно:
 
-\subsection{A Simple Equation}
-
-Here is an example of an equation:
+\subsection{Образцы}
 
 \begin{tabular}{c|c|c}
 $x_{1} \backslash x_{2}$ & 0 & 1 \\
@@ -33,12 +36,6 @@ $x_{1} \backslash x_{2}$ & 0 & 1 \\
 1 & f(1,0) & f(1,1) \\
 \end{tabular}
 
-\begin{tabular}{c|c|c}
-$x_{1} \backslash x_{2}$ & 0 & 1 \\
-\hline
-0 & 0 & 1 \\
-1 & 1 & 0 \\
-\end{tabular}
 
 \begin{tabular}{c|c|c|c|c}
 $x_{1} \backslash x_{2}x_{3} $ & 00 & 01 & 11 & 10 \\
@@ -46,6 +43,24 @@ $x_{1} \backslash x_{2}x_{3} $ & 00 & 01 & 11 & 10 \\
 0 & f(0,0,0) & f(0,0,1) & f(0,1,1) & f(0,1,0) \\
 1 & f(1,0,0) & f(1,0,1) & f(1,1,1) & f(1,1,0) \\
 \end{tabular}
+
+\subsection{Примеры}
+
+Для примеры я возьму элементарные функции выраженные через СДНФ и СКНФ.
+
+Пример 1: $\overline{x_{1}} \land x_{2} \lor x_{1} \land \overline{x_{2}} $
+
+Заполненная карта карно:
+
+
+\begin{NiceTabular}{c|c}[colortbl-like]
+$x_{1}$ & $x_{2}$ \\
+\hline
+0 & 1 \\
+0 & 1 \\
+\CodeAfter
+\tikz \node[draw=red, thick, ellipse, fit=(2-2)(3-2)] {};
+\end{NiceTabular}
 
 \begin{tabular}{c|c|c|c|c}
 $x_{1} \backslash x_{2}x_{3} $ & 00 & 01 & 11 & 10 \\
